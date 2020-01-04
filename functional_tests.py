@@ -1,10 +1,19 @@
 #!/usr/bin/env python
 
+import unittest
 from selenium import webdriver
 
-browser = webdriver.Firefox()
-browser.get('http://localhost:5000')
+class FunctionalTests(unittest.TestCase):
 
-assert 'Flask' in browser.title
+    def setUp(self):
+        self.browser = webdriver.Firefox()
 
-browser.quit()
+    def tearDown(self):
+        self.browser.quit()
+
+    def test_flask_in_browser_title(self):
+        self.browser.get('http://localhost:5000')
+        assert 'Flask' in self.browser.title
+
+if __name__ == '__main__':
+    unittest.main()
