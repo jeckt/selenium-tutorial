@@ -1,5 +1,7 @@
 #!/usr/bin/env python
 
+import time
+
 import unittest
 from selenium import webdriver
 from selenium.webdriver.common.keys import Keys
