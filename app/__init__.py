@@ -18,9 +18,12 @@ def create_app(test_config=None):
     except OSError:
         pass
 
-    @app.route('/')
+    @app.route('/', methods=('GET', 'POST'))
     def index():
-        from flask import render_template
+        from flask import render_template, request
+        if request.method == 'POST':
+            item = request.form['item_text']
+            return render_template('index.html', new_item_text=item)
         return render_template('index.html')
 
     return app
