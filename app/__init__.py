@@ -23,7 +23,7 @@ def create_app(test_config=None):
         page = """
         <!doctype html>
           <head>
-            <title>Flask</title>
+            <title>To-Do</title>
           </head>
           <body>
           </body>
