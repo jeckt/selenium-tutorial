@@ -20,15 +20,7 @@ def create_app(test_config=None):
 
     @app.route('/')
     def index():
-        page = """
-        <!doctype html>
-          <head>
-            <title>To-Do</title>
-          </head>
-          <body>
-          </body>
-        </html>
-        """
-        return page
+        from flask import render_template
+        return render_template('index.html')
 
     return app
